@@ -1,0 +1,110 @@
+// Breakpoints
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$large-desktop-width: 1400px;
+
+// Colors
+$color-primary-blue: #4A9EFF;
+$color-primary-blue-light: #5AAEFF;
+$color-primary-orange: #FF6B35;
+$color-primary-orange-light: #FF8555;
+
+$color-dark-1: #0a0f1a;
+$color-dark-2: #0f1a2e;
+$color-dark-3: #1a2a4a;
+$color-dark-4: #2a3a5a;
+$color-dark-5: #2a4a6a;
+$color-dark-6: #3a5a7a;
+
+$color-white: #ffffff;
+$color-white-opacity-95: rgba(255, 255, 255, 0.95);
+$color-white-opacity-90: rgba(255, 255, 255, 0.9);
+$color-white-opacity-80: rgba(255, 255, 255, 0.8);
+$color-white-opacity-70: rgba(255, 255, 255, 0.7);
+$color-white-opacity-50: rgba(255, 255, 255, 0.5);
+$color-white-opacity-30: rgba(255, 255, 255, 0.3);
+$color-white-opacity-20: rgba(255, 255, 255, 0.2);
+$color-white-opacity-15: rgba(255, 255, 255, 0.15);
+$color-white-opacity-10: rgba(255, 255, 255, 0.1);
+$color-white-opacity-08: rgba(255, 255, 255, 0.08);
+
+$color-blue-opacity-80: rgba(74, 158, 255, 0.8);
+$color-blue-opacity-60: rgba(74, 158, 255, 0.6);
+$color-blue-opacity-50: rgba(74, 158, 255, 0.5);
+$color-blue-opacity-40: rgba(74, 158, 255, 0.4);
+$color-blue-opacity-30: rgba(74, 158, 255, 0.3);
+$color-blue-opacity-20: rgba(74, 158, 255, 0.2);
+$color-blue-opacity-10: rgba(74, 158, 255, 0.1);
+
+$color-orange-opacity-40: rgba(255, 107, 53, 0.4);
+$color-orange-opacity-30: rgba(255, 107, 53, 0.3);
+
+$color-black-opacity-50: rgba(0, 0, 0, 0.5);
+$color-black-opacity-40: rgba(0, 0, 0, 0.4);
+$color-black-opacity-30: rgba(0, 0, 0, 0.3);
+
+// Typography
+$font-family-primary: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$font-size-xs: 0.7rem;
+$font-size-sm: 0.75rem;
+$font-size-base: 0.9rem;
+$font-size-md: 0.95rem;
+$font-size-lg: 1rem;
+$font-size-xl: 1.1rem;
+$font-size-2xl: 1.2rem;
+$font-size-3xl: 1.5rem;
+$font-size-4xl: 2rem;
+$font-size-5xl: 2.5rem;
+$font-size-6xl: 3.5rem;
+
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+
+$letter-spacing-wide: 0.05em;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 0.75rem;
+$spacing-lg: 1rem;
+$spacing-xl: 1.5rem;
+$spacing-2xl: 2rem;
+$spacing-3xl: 2.5rem;
+$spacing-4xl: 4rem;
+
+// Border Radius
+$border-radius-sm: 8px;
+$border-radius-md: 12px;
+$border-radius-lg: 16px;
+$border-radius-xl: 50%;
+
+// Shadows
+$shadow-sm: 0 2px 10px $color-black-opacity-30;
+$shadow-md: 0 4px 12px $color-orange-opacity-40;
+$shadow-lg: 0 6px 20px $color-blue-opacity-50;
+$shadow-xl: 0 10px 30px $color-blue-opacity-30;
+$shadow-2xl: 0 15px 50px $color-black-opacity-50;
+
+$shadow-glow-blue-sm: 0 0 8px $color-blue-opacity-50;
+$shadow-glow-blue-md: 0 0 15px $color-blue-opacity-60;
+$shadow-glow-blue-lg: 0 0 20px $color-blue-opacity-80;
+$shadow-glow-blue-xl: 0 0 30px $color-blue-opacity-20;
+
+// Transitions
+$transition-fast: 0.3s ease;
+$transition-normal: 0.4s ease;
+$transition-slow: 1s ease-out;
+
+// Z-index
+$z-index-base: 1;
+$z-index-sticky: 1000;
+
+// Container
+$container-max-width: 1400px;
+$container-padding: 2rem;

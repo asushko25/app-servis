@@ -1,0 +1,319 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixin.scss";
+
+.hero {
+  position: relative;
+  flex: 1;
+  @include flex-center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a2a4a 0%, #2a4a6a 50%, #3a5a7a 100%);
+  min-height: 0;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $z-index-base;
+  background-image: url('../../assets/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  // Fallback gradient if image doesn't load
+  background-color: $color-dark-3;
+}
+
+.hero-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 42, 74, 0.85) 0%,
+    rgba(42, 74, 106, 0.75) 50%,
+    rgba(58, 90, 122, 0.65) 100%
+  );
+  z-index: 1;
+}
+
+.water-splash {
+  position: absolute;
+  left: -10%;
+  top: 10%;
+  width: 40%;
+  height: 80%;
+  background: 
+    radial-gradient(ellipse 70% 90% at 25% 40%, $color-blue-opacity-50 0%, transparent 70%),
+    radial-gradient(ellipse 50% 70% at 55% 70%, $color-blue-opacity-40 0%, transparent 60%);
+  border-radius: $border-radius-xl;
+  @include water-flow(4s);
+  filter: blur(60px);
+  z-index: 1;
+  opacity: 0.8;
+}
+
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  @include container;
+  padding: $spacing-xl $spacing-2xl;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-2xl;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  
+  @include on-tablet {
+    grid-template-columns: 1fr;
+    padding: $spacing-lg;
+  }
+}
+
+.hero-content {
+  @include fade-in-up(1s, 0s);
+}
+
+.hero-title {
+  font-size: $font-size-6xl;
+  font-weight: $font-weight-bold;
+  color: $color-white;
+  margin: 0 0 $spacing-md 0;
+  line-height: $line-height-tight;
+  @include text-shadow;
+  max-width: 600px;
+  
+  @include on-tablet {
+    font-size: $font-size-5xl;
+  }
+}
+
+.hero-subtitle {
+  font-size: $font-size-3xl;
+  color: $color-primary-blue;
+  margin: 0 0 $spacing-xl 0;
+  font-weight: $font-weight-normal;
+  
+  @include on-tablet {
+    font-size: $font-size-2xl;
+  }
+}
+
+.hero-buttons {
+  display: flex;
+  gap: $spacing-lg;
+  flex-wrap: wrap;
+  
+  @include on-tablet {
+    justify-content: center;
+  }
+}
+
+.btn-primary {
+  @include button-primary;
+  padding: $spacing-md $spacing-2xl;
+}
+
+.btn-secondary {
+  @include button-secondary;
+  display: flex;
+  padding: $spacing-md $spacing-xl;
+}
+
+.btn-phone-icon {
+  flex-shrink: 0;
+}
+
+.btn-phone-text {
+  @include flex-column;
+  gap: 0.1rem;
+  align-items: flex-start;
+}
+
+.btn-call-now {
+  font-size: $font-size-sm;
+  opacity: 0.9;
+  @include text-uppercase;
+}
+
+.btn-phone-number {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  z-index: 2;
+  @include fade-in-right(1s, 0.3s);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.plumber-image {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  max-height: 100%;
+  border-radius: $border-radius-lg;
+  box-shadow: 
+    0 25px 70px rgba(0, 0, 0, 0.7),
+    0 0 50px rgba(74, 158, 255, 0.4);
+  object-fit: cover;
+  object-position: center;
+  @include float-animation(4s);
+  position: relative;
+  z-index: 2;
+  display: block;
+  
+  @include on-tablet {
+    max-width: 100%;
+    max-height: 300px;
+  }
+}
+
+// Mobile Responsive
+@include on-tablet {
+  .hero-container {
+    grid-template-columns: 1fr;
+    padding: $spacing-md $spacing-lg;
+    gap: $spacing-md;
+  }
+  
+  .hero-title {
+    font-size: $font-size-4xl;
+    text-align: center;
+    margin: 0 0 $spacing-sm 0;
+  }
+  
+  .hero-subtitle {
+    font-size: $font-size-xl;
+    text-align: center;
+    margin: 0 0 $spacing-md 0;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+    gap: $spacing-md;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: $spacing-sm $spacing-lg;
+    font-size: $font-size-sm;
+  }
+  
+  .hero-image-wrapper {
+    margin-top: $spacing-md;
+    display: none;
+  }
+  
+  .plumber-image {
+    max-width: 100%;
+    max-height: 200px;
+    margin: 0 auto;
+  }
+  
+  .water-splash {
+    width: 70%;
+    height: 50%;
+    left: -15%;
+  }
+}
+
+@include on-mobile {
+  .hero {
+    min-height: auto;
+  }
+  
+  .hero-container {
+    padding: $spacing-lg $spacing-md;
+    gap: $spacing-lg;
+    min-height: auto;
+  }
+  
+  .hero-content {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .hero-title {
+    font-size: $font-size-4xl;
+    margin: 0 0 $spacing-md 0;
+    text-align: center;
+  }
+  
+  .hero-subtitle {
+    font-size: $font-size-xl;
+    margin: 0 0 $spacing-lg 0;
+    text-align: center;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: $spacing-md;
+    margin-top: $spacing-md;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 100%;
+    min-height: 48px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+    padding: $spacing-md $spacing-lg;
+    font-size: $font-size-sm;
+    box-sizing: border-box;
+    display: flex;
+  }
+  
+  .btn-secondary {
+    flex-direction: row;
+    gap: $spacing-sm;
+  }
+  
+  .btn-phone-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  
+  .btn-phone-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $spacing-xs;
+  }
+  
+  .btn-call-now {
+    font-size: $font-size-sm;
+    white-space: nowrap;
+  }
+  
+  .btn-phone-number {
+    font-size: $font-size-sm;
+    white-space: nowrap;
+  }
+  
+  .hero-image-wrapper {
+    display: none;
+  }
+  
+  .water-splash {
+    display: none;
+  }
+}

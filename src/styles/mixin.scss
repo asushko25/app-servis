@@ -1,0 +1,209 @@
+@import "./variables.scss";
+
+// Media Queries
+@mixin on-mobile {
+  @media (max-width: $mobile-width) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (max-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+@mixin on-large-desktop {
+  @media (min-width: $large-desktop-width) {
+    @content;
+  }
+}
+
+@mixin between-tablet-desktop {
+  @media (min-width: #{$tablet-width + 1px}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+// Flexbox
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Container
+@mixin container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+// Animations
+@mixin fade-in-up($duration: 1s, $delay: 0s) {
+  animation: fadeInUp $duration ease-out $delay both;
+}
+
+@mixin fade-in-right($duration: 1s, $delay: 0s) {
+  animation: fadeInRight $duration ease-out $delay both;
+}
+
+@mixin float-animation($duration: 4s) {
+  animation: float $duration ease-in-out infinite;
+}
+
+@mixin water-flow($duration: 4s) {
+  animation: waterFlow $duration ease-in-out infinite;
+}
+
+// Buttons
+@mixin button-base {
+  border: none;
+  border-radius: $border-radius-sm;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-lg;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  cursor: pointer;
+  transition: all $transition-fast;
+  font-family: $font-family-primary;
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: $color-primary-blue;
+  color: $color-white;
+  padding: $spacing-lg $spacing-2xl;
+  box-shadow: 0 4px 15px $color-blue-opacity-30;
+
+  &:hover {
+    background: $color-primary-blue-light;
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background: rgba(26, 42, 74, 0.8);
+  color: $color-white;
+  border: 2px solid $color-white-opacity-30;
+  padding: $spacing-lg $spacing-xl;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background: $color-dark-3;
+    border-color: $color-white-opacity-50;
+    transform: translateY(-2px);
+  }
+}
+
+@mixin button-cta {
+  @include button-base;
+  background: $color-primary-orange;
+  color: $color-white;
+  padding: $spacing-md $spacing-xl;
+  font-size: $font-size-base;
+
+  &:hover {
+    background: $color-primary-orange-light;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+}
+
+// Gradients
+@mixin gradient-header {
+  background: linear-gradient(135deg, $color-dark-3 0%, $color-dark-4 100%);
+}
+
+@mixin gradient-hero {
+  background: linear-gradient(135deg, $color-dark-3 0%, $color-dark-5 50%, $color-dark-6 100%);
+}
+
+@mixin gradient-hero-overlay {
+  background: linear-gradient(135deg, rgba(26, 42, 74, 0.95) 0%, rgba(42, 74, 106, 0.85) 50%, rgba(58, 90, 122, 0.75) 100%);
+}
+
+@mixin gradient-services {
+  background: linear-gradient(135deg, $color-dark-3 0%, $color-dark-2 100%);
+}
+
+// Text
+@mixin text-shadow {
+  text-shadow: 2px 2px 4px $color-black-opacity-30;
+}
+
+@mixin text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}
+
+// Effects
+@mixin glow-effect($color: $color-primary-blue, $opacity: 0.5) {
+  filter: drop-shadow(0 0 8px rgba($color, $opacity));
+}
+
+@mixin backdrop-blur {
+  backdrop-filter: blur(10px);
+}
+
+// Keyframes
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+@keyframes waterFlow {
+  0%, 100% {
+    transform: translateX(0) translateY(0) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateX(30px) translateY(-10px) scale(1.15);
+    opacity: 0.6;
+  }
+}
+

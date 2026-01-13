@@ -1,0 +1,240 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixin.scss";
+
+.header {
+  @include gradient-header;
+  padding: $spacing-md $spacing-2xl;
+  position: relative;
+  z-index: $z-index-sticky;
+  box-shadow: $shadow-sm;
+  flex-shrink: 0;
+}
+
+.header-container {
+  @include container;
+  @include flex-between;
+  gap: $spacing-2xl;
+}
+
+.logo-section {
+  @include flex-center;
+  gap: $spacing-md;
+  flex-shrink: 0;
+
+  &:hover .logo-icon {
+    transform: scale(1.1);
+  }
+
+  @include on-mobile {
+    justify-content: center;
+  }
+}
+
+.logo-icon {
+  @include flex-center;
+  @include glow-effect($color-primary-blue, 0.5);
+  transition: transform $transition-fast;
+}
+
+.logo-text {
+  color: $color-white;
+  font-size: $font-size-xl;
+  letter-spacing: $letter-spacing-wide;
+  white-space: nowrap;
+}
+
+.logo-text-bold {
+  font-weight: $font-weight-bold;
+}
+
+.logo-text-normal {
+  font-weight: $font-weight-normal;
+  color: $color-primary-blue;
+}
+
+.nav-menu {
+  display: flex;
+  gap: $spacing-2xl;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-link {
+  color: $color-white;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-md;
+  transition: color $transition-fast;
+  position: relative;
+
+  &:hover {
+    color: $color-primary-blue;
+  }
+}
+
+.header-right {
+  @include flex-center;
+  gap: $spacing-xl;
+  flex-shrink: 0;
+}
+
+.emergency-call {
+  @include flex-center;
+  gap: $spacing-md;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity $transition-fast;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.phone-icon {
+  flex-shrink: 0;
+}
+
+.emergency-text {
+  @include flex-column;
+  gap: 0.1rem;
+}
+
+.emergency-label {
+  color: $color-white;
+  font-size: $font-size-sm;
+  opacity: 0.9;
+}
+
+.phone-number {
+  color: $color-white;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-lg;
+}
+
+.cta-button {
+  @include button-cta;
+}
+
+// Mobile Responsive
+@include between-tablet-desktop {
+  .nav-menu {
+    gap: $spacing-lg;
+  }
+  
+  .nav-link {
+    font-size: 0.85rem;
+  }
+  
+  .emergency-text {
+    display: none;
+  }
+}
+
+@include on-tablet {
+  .header {
+    padding: $spacing-md $spacing-lg;
+  }
+  
+  .header-container {
+    flex-wrap: wrap;
+    gap: $spacing-md;
+  }
+  
+  .logo-text {
+    font-size: $font-size-base;
+  }
+  
+  .nav-menu {
+    order: 3;
+    width: 100%;
+    justify-content: space-around;
+    gap: $spacing-sm;
+  }
+  
+  .nav-link {
+    font-size: $font-size-sm;
+  }
+  
+  .header-right {
+    gap: $spacing-md;
+  }
+  
+  .emergency-call {
+    display: none;
+  }
+  
+  .cta-button {
+    padding: $spacing-sm $spacing-lg;
+    font-size: $font-size-sm;
+  }
+}
+
+@include on-mobile {
+  .header {
+    padding: $spacing-md $spacing-md;
+  }
+  
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+  }
+  
+  .logo-section {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .logo-icon {
+    width: 35px;
+    height: 35px;
+    
+    svg {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  
+  .logo-text {
+    font-size: $font-size-base;
+  }
+  
+  .nav-menu {
+    width: 100%;
+    justify-content: space-between;
+    gap: $spacing-sm;
+    order: 2;
+  }
+  
+  .nav-link {
+    font-size: $font-size-sm;
+    padding: $spacing-xs 0;
+  }
+  
+  .header-right {
+    width: 100%;
+    justify-content: center;
+    order: 3;
+    margin-top: $spacing-sm;
+  }
+  
+  .emergency-call {
+    display: none;
+  }
+  
+  .cta-button {
+    width: 100%;
+    max-width: 100%;
+    min-height: 48px;
+    height: 48px;
+    padding: $spacing-md $spacing-lg;
+    font-size: $font-size-sm;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+  }
+}
